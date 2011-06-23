@@ -1,0 +1,13 @@
+# coding: utf-8
+%h1 Список показателей 
+
+.content
+  %table.data
+    %tr
+      %th Название
+    - for f in @factors
+      %tr
+        %td= link_to f.name, :action => 'show', :id => f
+%br	
+.actions
+  = link_to 'Добавить показатель', :action => 'new'		

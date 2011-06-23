@@ -1,0 +1,27 @@
+%h1
+  = submit
+  показатель
+.content
+  - form_for @factor do |form|
+    %table.card
+      %tr
+        %th Полное название
+        %td= form.text_field :name
+      %tr
+        %th Сокращенное название
+        %td= form.text_field :short_name
+      %tr
+        %th= form.label "Блок показателей"
+        %td= collection_select :factor, :block_id, Block.all, :id, :name
+      %tr
+        %th= form.label "Шаблон"
+        %td= select :weight_factor, "template_id", KpiTemplate.all.collect {|t| [ t.name, t.id ] }
+        -#%td= collection_select :factor, :block_id, Template.all, :id, :name
+        -#%td= select(:template, :template_id, Block.all.collect {|p| [ p.name, p.id ] }, { :include_blank => true } )
+      %tr
+        %th= form.label "Вес"
+        %td= text_field :weight_factor, :weight, :size => 6
+      
+    %br
+  
+    = submit_tag submit

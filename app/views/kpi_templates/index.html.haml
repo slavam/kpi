@@ -1,0 +1,17 @@
+# coding: utf-8
+%h1 Шаблоны оценки эффективности 
+
+.content
+  %table.data
+    %tr
+      %th Полное название
+      %th Сокращенное название
+    - for t in @templates
+      %tr
+        -#%td= link_to t.name, :action => 'show', :id => t 
+        %td= t.name
+        %td= t.short_name
+-#        %td= link_to 'Показатели', factors_path(b.id)
+-#%br	
+-#.actions
+  -#= link_to 'Добавить', :action => 'new'

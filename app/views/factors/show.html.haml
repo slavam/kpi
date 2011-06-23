@@ -1,0 +1,25 @@
+# coding: utf-8
+%h1 Описание показателя "#{@factor.name}" 
+
+.content
+  %table.data
+    %tr
+      %th Полное название:
+      %td= @factor.name
+    %tr
+      %th Сокращенное название:
+      %td= @factor.short_name
+    %tr
+      %th Блок:
+      %td= @factor.block.name
+    - for w in @factor.weight_factors
+      %tr
+        %th Шаблон
+        %td= w.kpi_template.name
+      %tr
+        %th Вес
+        %td= w.weight
+%br      
+.actions
+  -#= link_to 'Редактировать', edit_block_path(@block)
+  = link_to 'Удалить', factor_path(@factor), :method => :delete, :confirm => "Удалить показатель?"
