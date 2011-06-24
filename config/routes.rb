@@ -5,7 +5,12 @@ Kpi::Application.routes.draw do
   resources :factors
   resources :kpi_templates
   resources :weight_factors
-  resources :performances
+  resources :performances do
+    collection do
+      get :get_report_params
+      post :show_report
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

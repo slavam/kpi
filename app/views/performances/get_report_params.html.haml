@@ -1,0 +1,14 @@
+# coding: utf-8
+%h1 Задайте параметры отчета
+
+.content
+  - form_for :report, :url => { :action => "show_report" }, :method => "get" do 
+    %table
+      %tr
+        %th= "Шаблон:"
+        %td= select :report_params, "template_id", KpiTemplate.all.collect {|t| [ t.name, t.id ] }
+      %tr
+        %th= "Подразделение"
+        %td= select :report_params, "division_id", Division.all.collect {|d| [ d.name, d.id ] }
+            
+    = submit_tag "Сформировать отчет"

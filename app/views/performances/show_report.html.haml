@@ -1,13 +1,13 @@
 # coding: utf-8
-%h1 Результаты деятельности 
+%h2 Оценка эффективности деятельности #{@performances[0].kpi_template.name+' '+@performances[0].division.name} 
 
 .content
   %table.data
     %tr
-      %th Подразделение
-      %th Шаблон
       %th Блок
+      %th Вес KPI
       %th Показатель
+      %th Вес в группе
       %th Доля
       %th План
       %th Факт
@@ -15,16 +15,12 @@
       %th KPI
     - for p in @performances
       %tr
-        %td= p.division.name 
-        %td= p.kpi_template.name
         %td= p.block.short_name
+        %td= p.block.weight*100 
         %td= p.factor.short_name
+        %td= p.weight_factor
         %td= p.rate
         %td= p.plan
         %td= p.fact
         %td= p.exec_percent
         %td= p.kpi
-%br      
-.actions
-  = link_to 'Подготовить отчет', :action => 'get_report_params'
-        
