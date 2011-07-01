@@ -1,6 +1,6 @@
 # coding: utf-8
 class FactorsController < ApplicationController
-  before_filter :find_factor, :only => [:show, :destroy]
+  before_filter :find_factor, :only => [:show, :destroy, :show_values]
   def index
 #    @factors = @block.factors.order("weight desc")
     @factors = Factor.order(:name)
@@ -9,6 +9,10 @@ class FactorsController < ApplicationController
   def show
   end
 
+  def show_values
+    @values = @factor.performances.order(:calc_date)  
+  end
+  
   def new
     @factor = Factor.new
   end

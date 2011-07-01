@@ -2,12 +2,16 @@ Kpi::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   resources :blocks
-  resources :factors
+  resources :factors do
+    collection do
+      get :show_values
+    end
+  end
   resources :kpi_templates
   resources :weight_factors
   resources :performances do
     collection do
-      get :get_report_params
+      get :get_report_params, :report_print
       post :show_report
     end
   end

@@ -7,8 +7,9 @@ gem 'rails', '3.0.9'
 
 #gem 'sqlite3'
 #gem 'mysql2'
-gem 'haml'
+gem "haml", "~> 3.1.2"
 gem 'pg', :require => 'pg'
+gem 'prawn', :submodules => true
 
 # Use unicorn as the web server
 # gem 'unicorn'

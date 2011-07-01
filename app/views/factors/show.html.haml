@@ -12,6 +12,12 @@
     %tr
       %th Блок:
       %td= @factor.block.name
+    %tr
+      %th Формула
+      %td= "P/F"
+    %tr
+      %th Ответственный
+      %td= "Иванов"
     - for w in @factor.weight_factors
       %tr
         %th Шаблон
@@ -21,5 +27,5 @@
         %td= w.weight
 %br      
 .actions
-  -#= link_to 'Редактировать', edit_block_path(@block)
+  = link_to 'Значения', :action => 'show_values', :id => @factor
   = link_to 'Удалить', factor_path(@factor), :method => :delete, :confirm => "Удалить показатель?"

@@ -18,9 +18,12 @@
         %td= p.block.short_name
         %td= p.block.weight*100 
         %td= p.factor.short_name
-        %td= p.weight_factor
+        %td= number_to_human(p.weight_factor.to_f*100)
         %td= p.rate
         %td= p.plan
         %td= p.fact
         %td= p.exec_percent
         %td= p.kpi
+.actions
+  =link_to 'Распечатать', :action => 'report_print', :division_id => @performances[0].division_id, :template_id => @performances[0].template_id, :format => 'pdf'
+ 
