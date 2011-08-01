@@ -1,0 +1,21 @@
+# coding: utf-8
+%h1 Показатели шаблона #{@factors[0].weight_factors[0].kpi_template.name} 
+- block_name = ''
+.content
+  %table.data
+    %tr
+      %th Название блока
+      %th Вес блока в шаблоне
+      %th Название показателя
+      %th Вес показателя в блоке
+    - for f in @factors
+      %tr
+        - if f.block.name != block_name
+          %td= f.block.name
+          %td= f.block.weight 
+          - block_name = f.block.name
+        - else
+          %td= ''
+          %td= ''
+        %td= f.short_name
+        %td= f.factor_weight

@@ -25,6 +25,10 @@ GEM
       activesupport (= 3.0.9)
       arel (~> 2.0.10)
       tzinfo (~> 0.3.23)
+    activerecord-oracle_enhanced-adapter (1.3.2)
+    activerecord-sqlserver-adapter (3.0.15)
+      activerecord (~> 3.0.3)
+      arel (~> 2.0.7)
     activeresource (3.0.9)
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
@@ -69,17 +73,27 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rdoc (3.6.1)
+    ruby-oci8 (2.0.6-x86-mingw32)
+    ruby-odbc (0.99994)
+    ruby-plsql (0.4.4)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     ttfunk (1.0.1)
     tzinfo (0.3.28)
+    will_paginate (2.3.15)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord-oracle_enhanced-adapter
+  activerecord-sqlserver-adapter
   haml (~> 3.1.2)
   pg
   prawn
   rails (= 3.0.9)
+  ruby-oci8
+  ruby-odbc
+  ruby-plsql
+  will_paginate (= 2.3.15)

@@ -25,5 +25,5 @@
         %td= p.exec_percent
         %td= p.kpi
 .actions
-  =link_to 'Распечатать', :action => 'report_print', :division_id => @performances[0].division_id, :template_id => @performances[0].template_id, :format => 'pdf'
+  =link_to 'Распечатать', :action => 'report_print', :period_id => @performances[0].period_id, :division_id => @performances[0].division_id, :template_id => @performances[0].template_id, :format => 'pdf'
  

@@ -27,6 +27,9 @@
             %div{'style' => "float: left;"}
               = render :partial => 'layouts/menuItem', :collection => [ | 
                 ['Блоки', blocks_path], |
+                ['Персонал',  workers_path], |
+                ['Подразделения',  subdivisions_path], |
+                ['Бизнесы', businesses_path], |
                 ['Показатели', factors_path], |
                 ['Шаблоны',  kpi_templates_path], |
                 ['Результаты',  performances_path] |

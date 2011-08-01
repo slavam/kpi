@@ -4,7 +4,7 @@ Kpi::Application.routes.draw do
   resources :blocks
   resources :factors do
     collection do
-      get :show_values
+      get :show_values, :show_factors_by_template
     end
   end
   resources :kpi_templates
@@ -16,6 +16,29 @@ Kpi::Application.routes.draw do
     end
   end
 
+  resources :workers do
+    collection do
+      get :my_show
+    end
+  end
+  resources :subdivisions do
+    collection do
+      get :my_show
+    end
+  end
+  resources :businesses
+  resources :branch_of_banks
+
+#  resources :maindivisions do
+#    resources :subdivisions do
+#      collection do
+#        get :my_show
+#      end
+#    end
+#    collection do
+#      get :my_show
+#    end
+#  end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

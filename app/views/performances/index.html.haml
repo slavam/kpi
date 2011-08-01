@@ -4,6 +4,7 @@
 .content
   %table.data
     %tr
+      %th Период
       %th Подразделение
       %th Шаблон
       %th Блок
@@ -15,6 +16,7 @@
       %th KPI
     - for p in @performances
       %tr
+        %td= p.period.description
         %td= p.division.name 
         %td= p.kpi_template.name
         %td= p.block.short_name

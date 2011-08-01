@@ -10,6 +10,12 @@ gem 'rails', '3.0.9'
 gem "haml", "~> 3.1.2"
 gem 'pg', :require => 'pg'
 gem 'prawn', :submodules => true
+gem 'activerecord-sqlserver-adapter'
+gem 'ruby-odbc'
+gem 'will_paginate', '2.3.15'
+gem 'ruby-oci8'
+gem 'activerecord-oracle_enhanced-adapter'
+gem 'ruby-plsql'
 
 # Use unicorn as the web server
 # gem 'unicorn'

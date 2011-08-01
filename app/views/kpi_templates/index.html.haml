@@ -4,14 +4,12 @@
 .content
   %table.data
     %tr
-      %th Полное название
-      %th Сокращенное название
+      %th Название
+      %th
     - for t in @templates
       %tr
-        -#%td= link_to t.name, :action => 'show', :id => t 
-        %td= t.name
-        %td= t.short_name
--#        %td= link_to 'Показатели', factors_path(b.id)
--#%br	
--#.actions
-  -#= link_to 'Добавить', :action => 'new'
+        %td= link_to t.name, :controller => 'factors', :action => 'show_factors_by_template', :template_id => t 
+        %td= link_to "Изменить", :action => :edit, :id => t.id
+%br	
+.actions
+  = link_to 'Добавить', :action => 'new'

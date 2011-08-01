@@ -19,13 +19,30 @@
           text: "Значения KPI"
         }
       },
+      tooltip: {
+        formatter: function(){
+          return Highcharts.dateFormat("%B %e, %Y", this.x) + ': '+
+          Highcharts.numberFormat(this.y, 2)+ '%';
+        }
+      },
       series: [{
+        name: "Факт",
         pointInterval: #{ 1.month * 1000},
         pointStart: #{ DateTime.parse(@values[0].calc_date.to_s).to_i * 1000}, 
         data: #{ 
           val = []
           for vv in @values do 
             val << vv.kpi 
+          end  
+          val}
+      },{
+        name: "План",
+        pointInterval: #{ 1.month * 1000},
+        pointStart: #{ DateTime.parse(@values[0].calc_date.to_s).to_i * 1000}, 
+        data: #{ 
+          val = []
+          for vv in @values do 
+            val << 15 
           end  
           val}
       }]
@@ -35,6 +52,9 @@
 %div{'id' => "kpi_chart", 'style'=> "width:560px; height:300px;"}
 .content
   %table.data
+    %tr
+      %th Дата
+      %th KPI
     - for v in @values
       %tr
         %td= v.calc_date

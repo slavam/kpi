@@ -9,6 +9,12 @@ class FactorsController < ApplicationController
   def show
   end
 
+  def show_factors_by_template
+    @factors = Factor.find_by_sql("SELECT f.*, wf.weight factor_weight FROM factors f
+      JOIN weight_factors wf ON f.id=wf.factor_id AND wf.template_id ="+params[:template_id]+
+      ' order by wf.template_id, f.block_id')
+  end
+
   def show_values
     @values = @factor.performances.order(:calc_date)  
   end

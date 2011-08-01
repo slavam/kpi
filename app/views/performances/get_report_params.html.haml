@@ -5,10 +5,17 @@
   - form_for :report, :url => { :action => "show_report" }, :method => "get" do 
     %table
       %tr
+        %th= "Период:"
+        %td= select :report_params, "period_id", Period.all.collect {|p| [ p.description, p.id ] }
+      %tr
         %th= "Шаблон:"
         %td= select :report_params, "template_id", KpiTemplate.all.collect {|t| [ t.name, t.id ] }
       %tr
-        %th= "Подразделение"
-        %td= select :report_params, "division_id", Division.all.collect {|d| [ d.name, d.id ] }
+        %th= "Подразделение:"
+        %td= select :report_params, "division_id", BranchOfBank.all.collect {|d| [ d.name, d.id ] }
+        -#%td= select :report_params, "division_id", Division.all.collect {|d| [ d.name, d.id ] }
+      -#%tr
+        -#%th= "Бизнес:"
+        -#%td= select :report_params, "division_id", BranchOfBank.all.collect {|d| [ d.name, d.id ] }
             
     = submit_tag "Сформировать отчет"
